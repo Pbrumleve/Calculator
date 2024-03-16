@@ -1,0 +1,25 @@
+* {
+  color: rgb(236, 235, 235);
+  background-color: rgb(53, 52, 52);
+}
+
+.display {
+  margin: 160px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 30px;
+  border-color: bisque;
+  padding: 100px;
+  background-color: aliceblue;
+}
+
+button {
+  font-size: 60px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
