@@ -2,6 +2,11 @@ let numOne;
 let numTwo;
 let operator;
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', )
+})
+
 function operate(numOne, numTwo, operator) {
   switch (operator) {
     case '+':
