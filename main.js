@@ -3,9 +3,7 @@ let numTwo;
 let operator;
 
 function operate(numOne, numTwo, operator) {
-  let operatorInput = operator.toString();
-
-  switch (operatorInput) {
+  switch (operator) {
     case '+':
       add(numOne, numTwo);
       break;
