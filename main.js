@@ -13,6 +13,39 @@ buttons.forEach((button) => {
   button.addEventListener('click', populateDisplay());
 });
 
+window.addEventListener('keydown', function(e) {
+  switch (e.key) {
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case '0':
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '=':
+    case '.':
+      populateDisplay(e.key);
+      break;
+    case 'Enter':
+      populateDisplay('=')
+      break;
+    case 'Backspace':
+     populateDisplay('backspace')
+      break;
+    case 'Escape':
+      populateDisplay('clear')
+      break;
+    default: return;
+  };
+});
+
 function populateDisplay(input) {
   if (input === 'clear') {
     clearDisplay();
@@ -54,17 +87,6 @@ function populateDisplay(input) {
     };
   };
 };
-
-function clearDisplay() {
-  numOne = '';
-  numTwo = '';
-  operator = '';
-  answer = '';
-  solution.textContent = 0;
-  equation.textcontent = 0;
-  content.appendChild(solution);
-  content.appendChild(equation);
-}
 
 function operate(numOne, numTwo, operator) {
   numOne = Number(numOne);
@@ -115,6 +137,9 @@ function round(num) {
   return Math.round(stepOne) / 1000;
 };
 
-window.addEventListener('keydown', function(e) {
-  console.log(e.keyCode);
-})
+function clearDisplay() {
+  numOne = '';
+  numTwo = '';
+  operator = '';
+  answer = '';
+};
