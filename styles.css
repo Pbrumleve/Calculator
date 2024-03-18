@@ -7,15 +7,16 @@
   margin: 160px;
   margin-top: 8px;
   margin-bottom: 8px;
-  border: 30px;
-  border-color: bisque;
-  padding: 100px;
-  background-color: aliceblue;
+  background-color: rgb(200, 203, 206);
+  font-size: 32px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
-  font-size: 60px;
+  font-size: 50px;
   padding: 20px;
 }
 

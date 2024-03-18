@@ -3,14 +3,10 @@ let numTwo = '';
 let operator = '';
 let answer = '';
 
-const solution = document.createElement('div');
-solution.classList.add('solution');
-
-const message = document.createElement('div');
-message = classList.add('message');
-
-const equation = document.createElement('div');
-equation.classList.add('equation')
+const content = document.querySelector('.display');
+const solution = document.querySelector('.solution');
+const equation = document.querySelector('.equation');
+const message = document.querySelector('.message');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -18,7 +14,6 @@ buttons.forEach((button) => {
 });
 
 function populateDisplay(input) {
-  const content = document.querySelector('.display')
   if (input === 'clear') {
     clearDisplay();
     console.log(numOne);
@@ -65,6 +60,10 @@ function clearDisplay() {
   numTwo = '';
   operator = '';
   answer = '';
+  solution.textContent = 0;
+  equation.textcontent = 0;
+  content.appendChild(solution);
+  content.appendChild(equation);
 }
 
 function operate(numOne, numTwo, operator) {
@@ -115,3 +114,7 @@ function round(num) {
   let stepOne = 1000 * num;
   return Math.round(stepOne) / 1000;
 };
+
+window.addEventListener('keydown', function(e) {
+  console.log(e.keyCode);
+})
