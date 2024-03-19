@@ -4,9 +4,6 @@ let operator = '';
 let answer = '';
 
 const content = document.querySelector('.display');
-const solution = document.querySelector('.solution');
-const equation = document.querySelector('.equation');
-const message = document.querySelector('.message');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -47,44 +44,45 @@ window.addEventListener('keydown', function(e) {
 });
 
 function populateDisplay(input) {
+  const solution = document.querySelector('.solution');
+  const equation = document.querySelector('.equation');
+  const message = document.querySelector('.message');
   if (input === 'clear') {
     clearDisplay();
-    console.log(numOne);
+    solution.textContent = '0';
+    equation.textContent = '0';
+    message.textContent = '';
   } else if (input === 'backspace') {
     if (operator === '') {
       numOne = numOne.slice(0, -1);
-      console.log(numOne);
     } else if (numTwo === '') {
       operator = '';
-      console.log(operator);
     } else {
       numTwo = numTwo.slice(0, -1);
-      console.log(numTwo);
     };
+    equation.textContent = `${numOne} ${operator} ${numTwo}`;
   } else if (input === '=' && numOne !== '' && numTwo !== '' && operator !== '') {
     operate(numOne, numTwo, operator);
-    console.log(answer);
     numOne = answer;
     numTwo = '';
     operator = '';
+    solution.textContent = answer;
   } else if (input === '=' && (numOne === '' || numTwo === '')) {
-    console.log('Please have a number followed by an operator followed by a number chosen before clicking equals. Try again!')
+    message.textContent = 'Please have a number followed by an operator followed by a number chosen before clicking equals. Try again!';
     clearDisplay()
   } else {
     if (operator === '') {
       if (input === '0' || input === '1' || input === '2' || input === '3' || input === '4' || input === '5' || input === '6' || input === '7' || input === '8' || input === '9' || (input === '.' && !numOne.includes('.'))) {
         numOne += input;
-        console.log(numOne);  
       } else if (input === '+' || input === '-' || input === '*' || input === '/') {
         operator = input;
-        console.log(operator);
-      } else {console.log('Invalid input!')};
+      } else {return};
     } else {
       if (input === '0' || input === '1' || input === '2' || input === '3' || input === '4' || input === '5' || input === '6' || input === '7' || input === '8' || input === '9' || (input === '.' && !numTwo.includes('.'))) {
         numTwo += input;
-        console.log(numTwo);
-      } else {console.log('Invalid input!')};
+      } else {return};
     };
+    equation.textContent = `${numOne} ${operator} ${numTwo}`;
   };
 };
 
